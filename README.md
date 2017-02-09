@@ -1,5 +1,7 @@
 # Angular Provide Once [![npm version](https://badge.fury.io/js/angular-provide-once.svg)](https://badge.fury.io/js/angular-provide-once)
 
+[![Greenkeeper badge](https://badges.greenkeeper.io/adriancarriger/angular-provide-once.svg)](https://greenkeeper.io/)
+
 Remove the need to use forRoot in your Angular 2+ modules.
 
 [![Build Status](http://img.shields.io/travis/adriancarriger/angular-provide-once/master.svg?maxAge=60)](https://travis-ci.org/adriancarriger/angular-provide-once)
