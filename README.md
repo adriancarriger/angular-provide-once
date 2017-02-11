@@ -17,11 +17,6 @@
 - `Top level `: If multiple instances are attempted, the top level instance in the provider tree will be used
 - `Multiple consumers`: If multiple libraries depend on your service and those libraries are used in a single Angular project, you can still guarantee a single instance of your service
 
-## Demos
-
-- [`❌ Before`](http://plnkr.co/edit/Ki63QaImnPBqmNVFrgr1?p=preview) -- Multiple instances of the same service (not using this library)
-- [`✅ After`](https://ionic-pwa-ad85b.firebaseapp.com) -- Single instance (with library implementation)
-
 ## Install
 
 ```bash
