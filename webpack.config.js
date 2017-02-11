@@ -24,13 +24,13 @@ module.exports = {
     output: {
         path: helpers.root('bundles'),
         publicPath: '/',
-        filename: 'angular-provide-once.umd.js',
+        filename: '[name].umd.js',
         libraryTarget: 'umd',
         library: 'angular-provide-once'
     },
 
     // require those dependencies but don't bundle them
-    externals: [/^\@angular\//, /^rxjs\//],
+    externals: [/^angular\//, /^rxjs\//],
 
     module: {
         rules: [{
@@ -58,6 +58,14 @@ module.exports = {
                     emitErrors: false,
                     failOnHint: false
                 }
+            }
+        }),
+
+        new webpack.optimize.CommonsChunkPlugin({
+            name: 'vendor',
+            minChunks: function (module) {
+                // this assumes your vendor imports exist in the node_modules directory
+                return module.context && module.context.indexOf('node_modules') !== -1;
             }
         })
     ]
