@@ -1,5 +1,6 @@
 import { Optional, Provider, FactoryProvider, SkipSelf, Type } from '@angular/core';
-import { reflector } from '@angular/core/src/reflection/reflection';
+
+import { reflector } from './minimal-reflector';
 
 export function ProvideOnce<T>(input: Type<T>): FactoryProvider {
   return {

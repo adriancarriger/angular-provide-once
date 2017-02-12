@@ -22,7 +22,7 @@ module.exports = {
     entry: helpers.root('angular-provide-once.ts'),
 
     output: {
-        path: helpers.root('bundles'),
+        path: helpers.root('dist'),
         publicPath: '/',
         filename: '[name].umd.js',
         libraryTarget: 'umd',
