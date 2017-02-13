@@ -6,7 +6,7 @@ import { CountingService } from '../counting.service';
 @Component({
   selector: 'app-feature-b',
   providers: [
-    ProvideOnce(CountingService)
+    ...ProvideOnce(CountingService)
   ],
   templateUrl: './feature-b.component.html',
   styleUrls: ['./feature-b.component.css']

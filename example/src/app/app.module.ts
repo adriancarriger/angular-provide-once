@@ -21,7 +21,7 @@ import { FeatureBComponent } from './feature-b/feature-b.component';
     HttpModule
   ],
   providers: [
-    ProvideOnce(CountingService)
+    ...ProvideOnce(CountingService)
   ],
   bootstrap: [AppComponent]
 })
