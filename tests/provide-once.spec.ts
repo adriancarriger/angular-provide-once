@@ -22,13 +22,15 @@ describe('Function: ProvideOnce', () => {
   });
 
   it('should resolve dependencies in the provided factory function', () => {
-    const serviceA = new ClassA();
-    const serviceB = new ClassB(serviceA);
+    const serviceA: ClassA = new ClassA();
+    const serviceB: ClassB = new ClassB(serviceA);
     const providers: any = ProvideOnce(ClassB);
     const factory = providers[1].useFactory;
-    const newService = factory(null, ClassB);
+    const newService: ClassB = factory(null, ClassB);
     expect(newService instanceof ClassA).toBe(false);
     expect(newService instanceof ClassB).toBe(true);
+    expect(serviceB.classA instanceof ClassA).toBe(true);
+    expect(newService.classA instanceof ClassA).toBe(true);
   });
 });
 
@@ -37,5 +39,5 @@ export class ClassA { }
 
 @Injectable()
 export class ClassB {
-  constructor(private classA: ClassA) { }
+  constructor(public classA: ClassA) { }
 }

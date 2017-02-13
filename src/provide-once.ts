@@ -2,6 +2,7 @@ import {
   FactoryProvider,
   OpaqueToken,
   Optional,
+  ReflectiveInjector,
   SkipSelf,
   Type,
   ValueProvider } from '@angular/core';
@@ -27,8 +28,8 @@ export function CreateProviders<T>(
   ];
 }
 
-export function PROVIDER_FACTORY<T>(parentInstance: Type<T>, TypeFromToken: Type<T>): Type<T> {
-  if (parentInstance) { return parentInstance; }
-  const parameters: any[][] = [...reflector.parameters(TypeFromToken)];
-  return reflector.factory(TypeFromToken).apply(this, [...parameters]);
+export function PROVIDER_FACTORY<T>(parentInstance: Type<T>, Token: Type<T>): Type<T> {
+  return parentInstance || ReflectiveInjector
+    .resolveAndCreate([Token, ...reflector.parameters(Token)])
+    .get(Token);
 }
