@@ -34,7 +34,7 @@ import { MyService } from './my-service';
 @NgModule({
   imports: [],
   providers: [
-    ProvideOnce(MyService),
+    ...ProvideOnce(MyService)
   ],
   declarations: []
 })
