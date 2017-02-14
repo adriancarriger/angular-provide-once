@@ -8,6 +8,7 @@ import { AppComponent } from './app.component';
 import { CountingService } from './counting.service';
 import { FeatureAComponent } from './feature-a/feature-a.component';
 import { FeatureBComponent } from './feature-b/feature-b.component';
+import { LoggerService } from './logger.service';
 
 @NgModule({
   declarations: [
@@ -21,7 +22,8 @@ import { FeatureBComponent } from './feature-b/feature-b.component';
     HttpModule
   ],
   providers: [
-    ...ProvideOnce(CountingService)
+    ...ProvideOnce(CountingService, [LoggerService]),
+    LoggerService
   ],
   bootstrap: [AppComponent]
 })
