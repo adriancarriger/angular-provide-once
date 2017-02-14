@@ -29,17 +29,40 @@ npm install angular-provide-once --save
 import { NgModule } from '@angular/core';
 import { ProvideOnce } from 'angular-provide-once';
 
+import { DependantService } from './dependant-service';
 import { MyService } from './my-service';
+import { OtherService } from './other-service';
 
 @NgModule({
   imports: [],
   providers: [
-    ...ProvideOnce(MyService)
+    OtherService,
+    DependantService,
+    ...ProvideOnce(MyService, [DependantService])
   ],
   declarations: []
 })
 export class MyModule { }
 ```
+
+## Api
+
+## `...ProvideOnce(targetService[, dependencyArray])`
+
+## Paramaters
+
+### targetService
+
+The service that should be provided once.
+
+### dependencyArray
+
+An optional array of services that the targetService depends on. Only include immediate dependencies (not dependencies of dependencies).
+
+## Return value
+
+`ProvideOnce` returns an array of Providers. Use the [spread operator](https://developer.mozilla.org/en-US/docs/Web/JavaScript/Reference/Operators/Spread_operator) (e.g. `...ProvideOnce`) to include it along with other services.
+
 
 ## License
 
